@@ -12,10 +12,9 @@ const Todo = () => {
           <Topbar />
           <List />
         </div>
-        {/* 
-        <AddModal />
-        <EditModal /> */}
       </div>
+      <AddModal />
+      <EditModal />
     </>
   );
 };
