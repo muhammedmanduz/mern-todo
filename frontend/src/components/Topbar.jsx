@@ -1,6 +1,9 @@
-import React from "react";
+import { useDispatch } from "react-redux";
+import { openAddModal } from "../redux/modalSlice";
 
 const Topbar = () => {
+  const dispatch = useDispatch();
+
   return (
     <div className="topbar">
       <h3 className="mark">Todo App</h3>
@@ -12,7 +15,13 @@ const Topbar = () => {
         />
       </div>
       <div className="addButton">
-        <button>+</button>
+        <button
+          onClick={() => {
+            dispatch(openAddModal());
+          }}
+        >
+          +
+        </button>
       </div>
     </div>
   );

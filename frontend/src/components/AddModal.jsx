@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { closeAddModal } from "../redux/modalSlice";
 
 const AddModal = () => {
-  const [addModal, setAddModal] = useState(true);
+  const { newModal } = useSelector((state) => state.modal);
+
+  const dispatch = useDispatch();
 
   return (
-    <div className={addModal ? "modal active" : "modal"}>
+    <div className={newModal ? "modal active" : "modal"}>
       <div className="wrapper">
         <div className="topbar">
           <h3 className="mark">Todo App</h3>
@@ -12,7 +15,7 @@ const AddModal = () => {
           <button
             className="closeButton"
             onClick={() => {
-              setAddModal(false);
+              dispatch(closeAddModal());
             }}
           >
             X
@@ -29,10 +32,10 @@ const AddModal = () => {
 
           <div className="buttons">
             <button
-              onClick={() => {
-                setAddModal(false);
-              }}
               type="button"
+              onClick={() => {
+                dispatch(closeAddModal());
+              }}
             >
               Cancel
             </button>
